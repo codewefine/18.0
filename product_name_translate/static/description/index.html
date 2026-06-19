@@ -1,0 +1,535 @@
+<!-- ============================================================ -->
+<!--        Product Name Google Translate – Odoo App Store Page   -->
+<!-- ============================================================ -->
+
+<style>
+    /* ── Reset & Base ────────────────────────────────────────── */
+    .pnt-page * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pnt-page {
+        font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        color: #2d3748;
+        line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+    /* ── Hero Banner ─────────────────────────────────────────── */
+    .pnt-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 70px 30px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pnt-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+        animation: pnt-pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pnt-pulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.6;
+        }
+
+        50% {
+            transform: scale(1.15);
+            opacity: 1;
+        }
+    }
+
+    .pnt-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 860px;
+        margin: 0 auto;
+    }
+
+    .pnt-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 6px 22px;
+        border-radius: 50px;
+        margin-bottom: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .pnt-hero h1 {
+        color: #ffffff;
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 18px;
+        line-height: 1.2;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .pnt-hero h1 span {
+        background: linear-gradient(90deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .pnt-hero p {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 1.2rem;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    /* ── Compatibility Strip ─────────────────────────────────── */
+    .pnt-compat {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .pnt-compat-tag {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        padding: 6px 18px;
+        border-radius: 30px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(4px);
+    }
+
+    /* ── Section Utility ─────────────────────────────────────── */
+    .pnt-section {
+        padding: 60px 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .pnt-section-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 12px;
+    }
+
+    .pnt-section-sub {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #718096;
+        max-width: 640px;
+        margin: 0 auto 45px;
+    }
+
+    /* ── Feature Cards ───────────────────────────────────────── */
+    .pnt-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        justify-content: center;
+    }
+
+    .pnt-card {
+        flex: 1 1 280px;
+        max-width: 340px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 36px 28px;
+        text-align: center;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        border: 1px solid #edf2f7;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pnt-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(102, 126, 234, 0.18);
+    }
+
+    .pnt-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .pnt-card:nth-child(1)::after {
+        background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+
+    .pnt-card:nth-child(2)::after {
+        background: linear-gradient(90deg, #f093fb, #f5576c);
+    }
+
+    .pnt-card:nth-child(3)::after {
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+    }
+
+    .pnt-card-icon {
+        width: 68px;
+        height: 68px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 0 auto 20px;
+    }
+
+    .pnt-card:nth-child(1) .pnt-card-icon {
+        background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    }
+
+    .pnt-card:nth-child(2) .pnt-card-icon {
+        background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    }
+
+    .pnt-card:nth-child(3) .pnt-card-icon {
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    }
+
+    .pnt-card h4 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 10px;
+    }
+
+    .pnt-card p {
+        font-size: 0.95rem;
+        color: #718096;
+        line-height: 1.6;
+    }
+
+    /* ── Demo / GIF Section ──────────────────────────────────── */
+    .pnt-demo-bg {
+        background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+        padding: 60px 30px;
+    }
+
+    .pnt-demo-wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .pnt-demo-frame {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        display: inline-block;
+    }
+
+    .pnt-demo-frame img {
+        border-radius: 12px;
+        width: 100%;
+        max-width: 880px;
+        display: block;
+    }
+
+    .pnt-demo-caption {
+        margin-top: 20px;
+        font-size: 1rem;
+        color: #718096;
+        font-style: italic;
+    }
+
+    /* ── How It Works ────────────────────────────────────────── */
+    .pnt-steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        counter-reset: step;
+    }
+
+    .pnt-step {
+        flex: 1 1 220px;
+        max-width: 280px;
+        text-align: center;
+        position: relative;
+    }
+
+    .pnt-step-num {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+    }
+
+    .pnt-step h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 8px;
+    }
+
+    .pnt-step p {
+        font-size: 0.92rem;
+        color: #718096;
+    }
+
+    /* ── Screenshot ──────────────────────────────────────────── */
+    .pnt-screenshot-wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .pnt-screenshot-frame {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        display: inline-block;
+    }
+
+    .pnt-screenshot-frame img {
+        border-radius: 12px;
+        width: 100%;
+        max-width: 880px;
+        display: block;
+    }
+
+    /* ── CTA / Contact ───────────────────────────────────────── */
+    .pnt-cta {
+        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        padding: 60px 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pnt-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 60%),
+            radial-gradient(circle at 70% 50%, rgba(118, 75, 162, 0.12) 0%, transparent 60%);
+    }
+
+    .pnt-cta-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .pnt-cta h2 {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+
+    .pnt-cta p {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+    }
+
+    .pnt-cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .pnt-btn {
+        display: inline-block;
+        padding: 14px 34px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+    }
+
+    .pnt-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .pnt-btn-primary {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .pnt-btn-primary:hover {
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.55);
+    }
+
+    .pnt-btn-outline {
+        background: transparent;
+        color: #fff;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .pnt-btn-outline:hover {
+        border-color: #fff;
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+        .pnt-hero h1 {
+            font-size: 2rem;
+        }
+
+        .pnt-section-title {
+            font-size: 1.6rem;
+        }
+
+        .pnt-card {
+            max-width: 100%;
+        }
+    }
+</style>
+
+<div class="pnt-page">
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="pnt-hero">
+        <div class="pnt-hero-content">
+            <div class="pnt-badge">Odoo 18 Module</div>
+            <h1>Product Name<br /><span>Google Translate</span></h1>
+            <p>
+                Seamlessly translate product names into any language directly inside Odoo's
+                translation dialog — powered by Google Translate, zero configuration needed.
+            </p>
+            <div class="pnt-compat">
+                <span class="pnt-compat-tag">✅ Odoo 18 Community</span>
+                <span class="pnt-compat-tag">✅ Odoo 18 Enterprise</span>
+                <span class="pnt-compat-tag">🌍 Multi-Language</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ FEATURES ═══════════════════ -->
+    <section class="pnt-section">
+        <h2 class="pnt-section-title">Why You'll Love It</h2>
+        <p class="pnt-section-sub">Everything you need to manage product names across languages — fast, accurate, and
+            built right into Odoo.</p>
+
+        <div class="pnt-features">
+            <div class="pnt-card">
+                <div class="pnt-card-icon">🌍</div>
+                <h4>One-Click Translation</h4>
+                <p>Translate product names instantly from within Odoo's translation dialog. No more manual copy-pasting
+                    from external tools.</p>
+            </div>
+            <div class="pnt-card">
+                <div class="pnt-card-icon">🚀</div>
+                <h4>Boost Productivity</h4>
+                <p>Manage multi-language stores effortlessly. Expand your global reach by providing localized product
+                    names in seconds.</p>
+            </div>
+            <div class="pnt-card">
+                <div class="pnt-card-icon">⚙️</div>
+                <h4>Zero Configuration</h4>
+                <p>Install and start translating immediately. No API keys, no setup wizards — it just works out of the
+                    box.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ DEMO GIF ═══════════════════ -->
+    <section class="pnt-demo-bg">
+        <div class="pnt-demo-wrap">
+            <h2 class="pnt-section-title">See It In Action</h2>
+            <p class="pnt-section-sub">Watch how easy it is to translate product names with a single click.</p>
+            <div class="pnt-demo-frame">
+                <img src="Translate.gif" alt="Product Name Google Translate – Live Demo" />
+            </div>
+            <p class="pnt-demo-caption">💡 Click the Google Translate icon next to any language field to instantly fetch
+                the translation.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+    <section class="pnt-section">
+        <h2 class="pnt-section-title">How It Works</h2>
+        <p class="pnt-section-sub">Three simple steps to multilingual product names.</p>
+
+        <div class="pnt-steps">
+            <div class="pnt-step">
+                <div class="pnt-step-num">1</div>
+                <h4>Open Translation</h4>
+                <p>Navigate to any product and open the translation dialog for the product name field.</p>
+            </div>
+            <div class="pnt-step">
+                <div class="pnt-step-num">2</div>
+                <h4>Click Translate</h4>
+                <p>Click the Google Translate icon next to the target language. The translation is fetched instantly.
+                </p>
+            </div>
+            <div class="pnt-step">
+                <div class="pnt-step-num">3</div>
+                <h4>Save &amp; Done</h4>
+                <p>Review the translated name and save. Your product is now available in the new language!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ SCREENSHOT ═══════════════════ -->
+    <section class="pnt-demo-bg">
+        <div class="pnt-screenshot-wrap">
+            <h2 class="pnt-section-title">Screenshot</h2>
+            <p class="pnt-section-sub">The translate button integrates seamlessly into Odoo's native translation dialog.
+            </p>
+            <div class="pnt-screenshot-frame">
+                <img src="images.png" alt="Google Translate Button in Odoo Translation Dialog" />
+            </div>
+        </div>
+    </section>
+    <!-- ═══════════════════ CONTACT ═══════════════════ -->
+    <section class="pnt-cta">
+        <div class="pnt-cta-inner">
+            <h2>Contact Codewefine</h2>
+            <p>For support, customization, or any questions, feel free to contact us.</p>
+
+            <div class="pnt-cta-buttons">
+                <a href="mailto:ct2705ct@gmail.com"
+                class="pnt-btn pnt-btn-primary">
+                    📧 Codewefine
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

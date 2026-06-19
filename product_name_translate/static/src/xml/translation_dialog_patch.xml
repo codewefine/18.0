@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="product_name_translate.TranslationDialog"
+       t-inherit="web.TranslationDialog"
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='footer']/button[1]" position="before">
+            <button
+                t-if="canGoogleTranslateProductName"
+                class="btn btn-secondary"
+                t-att-disabled="translateState.isTranslating"
+                t-on-click="onGoogleTranslateAll">
+                <t t-if="translateState.isTranslating">
+                    <i class="fa fa-spinner fa-spin me-1"/>Translating...
+                </t>
+                <t t-else="">
+                    <i class="fa fa-language me-1"/>Translate All
+                </t>
+            </button>
+        </xpath>
+    </t>
+</templates>
